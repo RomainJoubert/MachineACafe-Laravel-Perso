@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Boisson;
 
 class machineACafeController extends Controller
 {
@@ -10,13 +11,13 @@ class machineACafeController extends Controller
 function listDrink() {
     // $drinkChoice =['Café au lait' => 60, 'Thé' => 70, 'Expresso' => 40, 'Café long' => 50];
 
-    $drinkChoice = DB::select('select NomBoisson, CodeBoisson  from boisson');
+    $drinkChoice = Boisson::select('nomBoisson', 'id')->get();
 
-     return view('machineACafe', ['toto'=>$drinkChoice]);
+     return view('machineACafe', ['drinkChoice'=>$drinkChoice]);
 
  }
- function showDrink($CodeBoisson){
- 	$boisson = DB::select('select NomBoisson, Prix from boisson where CodeBoisson = ?', [$CodeBoisson]);
+ function showDrink($id){
+ 	$boisson = Boisson::find($id);
  		return view('/boisson.drinkDetails', ['details'=>$boisson]);
  }
 //Fonction de Véro

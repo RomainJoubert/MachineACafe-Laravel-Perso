@@ -11,8 +11,8 @@ Prix des boissons trié par ordre croissant
 					
 					@foreach($prixBoissons as $prixBoisson)
 					<tr>
-					<td> {{$prixBoisson->NomBoisson}}</td>
-					<td> {{$prixBoisson->Prix}}</td>
+					<td> {{$prixBoisson->nomBoisson}}</td>
+					<td> {{$prixBoisson->prix}}</td>
 					</tr>
 					@endforeach
 				</tr>

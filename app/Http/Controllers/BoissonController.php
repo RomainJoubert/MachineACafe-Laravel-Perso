@@ -15,25 +15,37 @@ class BoissonController extends Controller
 
 	public function triBoisson()
 	{
-		$boisson = Boisson::select('NomBoisson')->orderBy('NomBoisson')->get();
+		$boisson = Boisson::select('nomBoisson')->orderBy('nomBoisson')->get();
 		return view('triBoisson',['detailBoissons'=>$boisson]);		
 	}
 
 	public function triPrix()
 	{
-		$prix = Boisson::orderBy('Prix')->get();
+		$prix = Boisson::orderBy('prix')->get();
 		return view('prix', ['prixBoissons'=>$prix]);
 	}
 
 	public function detailBoisson()
 	{
-		$detail = Boisson::all();
+		$detail = Boisson::select('nomBoisson', 'prix')->get();
 		return view('boissons', ['detailBoissons'=>$detail]);
 	}
 
-	 public function afficheBoisson($code){
- 	$boisson = Boisson::where('CodeBoisson',$code)->get();
+	 public function afficheBoisson($id){
+ 	$boisson = Boisson::where('id',$id)->get();
  		return view('/detail', ['detail'=>$boisson]);
+ 	}
+
+ 	public function create()
+ 	{
+ 		return view('createBoisson');
+ 	}
+
+ 	public function store($codeBoisson, $nomBoisson)
+ 	{
+ 		$boisson=Boisson::insert('id', $codeBoisson)->post();
+ 			$boisson= Boisson::where('nomBoisson', $nomBoisson);
+ 				return view('boissons');
  	}
 }
 

@@ -5,6 +5,6 @@
 @endsection
 
 @section('content')
-    <h3>Boisson : {{$details[0]->NomBoisson}}</h3>
-    <h3>Prix : {{$details[0]->Prix}} centimes d'euros</h3>
+    <h3>Boisson : {{$details->nomBoisson}}</h3>
+    <h3>Prix : {{$details->prix}} centimes d'euros</h3>
 @endsection

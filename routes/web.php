@@ -23,7 +23,7 @@ Route::get('/recettes','RecetteController@listRecettes');
 
 Route::get('/gestionMonnaie','GestionMonnaieController@listMonnaie');
 
-Route::get('/boisson/{code}','MachineACafeController@showDrink');
+Route::get('/boisson/{id}','MachineACafeController@showDrink');
 
 Route::get('triBoisson', 'BoissonController@triBoisson');
 
@@ -31,6 +31,10 @@ Route::get('prix', 'BoissonController@triPrix');
 
 Route::get('boissons', 'BoissonController@detailBoisson');
 
-Route::get('/boissons/{code}','BoissonController@afficheBoisson');
+Route::get('/boissons/{id}','BoissonController@afficheBoisson');
+
+Route::get('/createBoisson', 'BoissonController@create');
+
+// Route::get('/boissons', 'BoissonController@store');
 
 ?>

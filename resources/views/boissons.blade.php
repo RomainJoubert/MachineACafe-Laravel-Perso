@@ -1,6 +1,6 @@
 @extends('template.template')
 @section('titre')
-Boisson
+Boissons
 @endsection
 @section('content')
 <div class = "container">
@@ -9,11 +9,12 @@ Boisson
 			<thead>
 				<tr class="active">
 					@foreach($detailBoissons as $nomBoisson)
-						<td><a href="/boissons/{{$nomBoisson->CodeBoisson}}">{{$nomBoisson->NomBoisson}}</a></td>
+						<td><a href="/boissons/{{$nomBoisson->id}}">{{$nomBoisson->nomBoisson}}</a></td>
 					@endforeach
 				</tr>
 			</thead>
 		</table>
 	</div>
+	<a href="/createBoisson"><button type="button" class="btn btn-primary">Ajouter boisson</button></a>
 </div>
 @endsection
