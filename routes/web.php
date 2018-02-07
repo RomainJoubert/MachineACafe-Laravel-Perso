@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/index', 'IndexController@bienvenue');
+Route::get('/', 'IndexController@bienvenue');
 
 Route::get('/machineACafe','MachineACafeController@listDrink');
 
@@ -40,5 +40,7 @@ Route::post('/boissons', 'BoissonController@store');
 Route::get('modifierBoisson/{id}', 'BoissonController@modifier');
 
 Route::post('/boissons/{id}', 'BoissonController@update')->name('modifBoisson');
+
+Route::get('/boissons/{id}', 'BoissonController@destroy')->name('supprimerBoisson');
 
 ?>

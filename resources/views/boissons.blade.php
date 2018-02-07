@@ -14,7 +14,7 @@ Boissons
 						
 						<td><a href="/modifierBoisson/{{$nomBoisson->id}}"><button type='button' class='btn btn-success'>Modifier</button></a></td>
 
-						<td><a href="/modifierBoisson"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
+						<td><a href="{{route('supprimerBoisson', [$nomBoisson->id])}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
 						</tr>
 					@endforeach
 				</tr>

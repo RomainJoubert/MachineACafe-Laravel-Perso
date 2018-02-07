@@ -69,6 +69,14 @@ class BoissonController extends Controller
  		// dump($boisson);
  		return redirect('/boissons');
  	}
+
+ 	public function destroy($id)
+ 	{
+ 		$delete = Boisson::find($id);
+ 		$delete->delete();
+
+ 		return redirect()->route('test');
+ 	}
  }
 
 ?>

@@ -9,7 +9,9 @@ Boissons triées par ordre alphabétique
 			<thead>
 				<tr class="active">
 					@foreach($detailBoissons as $nomBoisson)
-						<td><a href="/boissons/{{$nomBoisson->id}}">{{$nomBoisson->nomBoisson}}</a></td>
+					<tr>
+						<td>{{$nomBoisson->id}}{{$nomBoisson->nomBoisson}}</td>
+					</tr>
 					@endforeach
 				</tr>
 			</thead>
