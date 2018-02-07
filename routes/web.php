@@ -29,12 +29,16 @@ Route::get('triBoisson', 'BoissonController@triBoisson');
 
 Route::get('prix', 'BoissonController@triPrix');
 
-Route::get('boissons', 'BoissonController@detailBoisson');
+Route::get('boissons', 'BoissonController@detailBoisson')->name('test');
 
 Route::get('/boissons/{id}','BoissonController@afficheBoisson');
 
 Route::get('/createBoisson', 'BoissonController@create');
 
-// Route::get('/boissons', 'BoissonController@store');
+Route::post('/boissons', 'BoissonController@store');
+
+Route::get('modifierBoisson/{id}', 'BoissonController@modifier');
+
+Route::post('/boissons/{id}', 'BoissonController@update')->name('modifBoisson');
 
 ?>

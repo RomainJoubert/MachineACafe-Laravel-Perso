@@ -27,12 +27,12 @@ class BoissonController extends Controller
 
 	public function detailBoisson()
 	{
-		$detail = Boisson::select('nomBoisson', 'prix')->get();
+		$detail = Boisson::select('id', 'nomBoisson', 'prix')->get();
 		return view('boissons', ['detailBoissons'=>$detail]);
 	}
 
 	 public function afficheBoisson($id){
- 	$boisson = Boisson::where('id',$id)->get();
+ 		$boisson = Boisson::where('id',$id)->get();
  		return view('/detail', ['detail'=>$boisson]);
  	}
 
@@ -41,12 +41,34 @@ class BoissonController extends Controller
  		return view('createBoisson');
  	}
 
- 	public function store($codeBoisson, $nomBoisson)
+ 	public function store(Request $request)
  	{
- 		$boisson=Boisson::insert('id', $codeBoisson)->post();
- 			$boisson= Boisson::where('nomBoisson', $nomBoisson);
- 				return view('boissons');
+ 		$boisson= new Boisson();
+
+ 		$boisson->nomBoisson = $request->input('nomBoisson');
+ 		$boisson->prix = $request->input('prix');
+ 		$boisson->save();
+
+
+ 		 return redirect('/boissons');
  	}
-}
+
+ 	public function modifier($id)
+ 	{
+ 		$boisson =  Boisson::find($id);
+ 		return view('/modifierBoisson',  ['boisson'=>$boisson]);
+ 	}
+
+
+ 	public function update($id)
+ 	{
+ 		$boisson= Boisson::find($id);
+ 		$boisson->nomBoisson = request('nomBoisson');
+ 		$boisson->prix = request('prix');
+ 		$boisson->save();
+ 		// dump($boisson);
+ 		return redirect('/boissons');
+ 	}
+ }
 
 ?>

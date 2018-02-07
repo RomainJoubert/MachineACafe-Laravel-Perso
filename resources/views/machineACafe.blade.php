@@ -12,7 +12,9 @@ Séléction des boissons
       <thead>
         <tr class="active">
           @foreach ($drinkChoice as $drinkName)
-          <td><a href="/boisson/{{$drinkName->id}}">{{ $drinkName->nomBoisson}} </a></td>
+          <tr>
+            <td><a href="/boisson/{{$drinkName->id}}">{{ $drinkName->nomBoisson}} </a></td>
+        </tr>
           @endforeach
         </tr>
       </thead>

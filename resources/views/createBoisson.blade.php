@@ -5,16 +5,15 @@ Ajouter boisson
 @section('content')
 <div class = "container">
 	<div class='form-group'>
-		<form type='post' action='boissons'>
+		<form method='post' action='/boissons'>
 			{{csrf_field()}}
-			<b>Code boisson</b>
-			<input type="text" class="form-control" placeholder="Code de la boisson"></input>
-			<br>
+			<input type="hidden" name="_token" value="{{csrf_token()}}">
+
 			<b>Nom boisson</b>
-			<input type="text" class="form-control" placeholder="Nom de la boisson"></input>
+			<input name='nomBoisson' type="text" class="form-control" placeholder="Nom de la boisson"></input>
 			<br>
 			<b>Prix boisson</b>
-			<input type="text" class="form-control" placeholder="Prix de la boisson"></input>
+			<input name='prix' type="text" class="form-control" placeholder="Prix de la boisson"></input>
 			<br>
 			<button type="submit" class='btn btn-default'>Valider</button>
 		</form>
