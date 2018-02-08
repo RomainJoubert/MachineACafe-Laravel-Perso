@@ -75,7 +75,7 @@ class BoissonController extends Controller
  		$delete = Boisson::find($id);
  		$delete->delete();
 
- 		return redirect()->route('test');
+ 		return redirect('/boissons');
  	}
  }
 
