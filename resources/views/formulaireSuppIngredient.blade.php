@@ -11,7 +11,8 @@ Voulez-vous supprimer l'ingrédient ?
 			{{method_field('DELETE')}}
 
 			
-			<button type="submit" class='btn btn-default'>Supprimer</button>
+			<button type="submit" class='btn btn-danger'>Supprimer</button>
+			<a href="/listeIngredients/"><button type="button" class='btn btn-success'>Annuler</button></a>
 		</form>
 		
 	</div>

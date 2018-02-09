@@ -83,4 +83,6 @@ Route::get('/formulaireSuppIngredient/{id}', 'IngredientController@delete')->nam
 //pour supprimer un ingrédient
 Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('supprimerIngredient');
 
+
+
 ?>
