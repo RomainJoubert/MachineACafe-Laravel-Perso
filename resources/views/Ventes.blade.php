@@ -12,7 +12,9 @@
 
 @section('content')
     <div class="container">
-        <table class="table table-hover table-bordered">
+
+        {{-- Tableau pour afficher chacune des ventes depuis le tableau multidimensionnel --}}
+        {{-- <table class="table table-hover table-bordered">
             <thead>
                 <tr class="active">
                     @foreach ($RetourTab[0] as $titre => $valeur)
@@ -30,7 +32,7 @@
                     </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table> --}}
         <div class="boutons">
             <button type="button" class="btn btn-default">Gérer les ventes</button>
         </div>

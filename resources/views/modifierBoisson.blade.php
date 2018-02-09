@@ -1,6 +1,7 @@
 @extends('template.template')
 @section('titre')
-Boisson à modifier
+Vous souhaitez modifier : 
+<h1>{{$boisson->nomBoisson}}</h1>
 @endsection
 @section('content')
 <div class='container'>

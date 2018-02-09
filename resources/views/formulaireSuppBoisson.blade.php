@@ -1,6 +1,9 @@
 @extends('template.template')
 @section('titre')
-Voulez-vous supprimer la boisson ?
+Voulez-vous supprimer :
+<h1>{{$boisson->nomBoisson}}</h1>
+
+
 @endsection
 @section('content')
 <div class='container'>

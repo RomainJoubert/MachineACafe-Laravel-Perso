@@ -23,5 +23,8 @@ Boissons
 		</table>
 	</div>
 	<a href="/createBoisson"><button type="button" class="btn btn-primary">Ajouter boisson</button></a>
+	<a href="/prix" class="btn btn-warning">Tri prix</a>
+	<a href="/triBoisson" class="btn btn-success">Tri ordre alphabétique</a>
+
 </div>
 @endsection

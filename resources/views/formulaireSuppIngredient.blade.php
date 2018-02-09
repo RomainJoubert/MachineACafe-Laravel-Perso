@@ -1,6 +1,7 @@
 @extends('template.template')
 @section('titre')
-Voulez-vous supprimer l'ingrédient ?
+Vous voulez supprimer l'ingrédient :
+<h1>{{$ingredient->nom}}</h1>
 @endsection
 @section('content')
 <div class='container'>

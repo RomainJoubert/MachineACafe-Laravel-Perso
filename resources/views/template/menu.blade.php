@@ -7,7 +7,5 @@
       <a href="../ventes">Liste des Ventes</a>
       <a href="../gestionMonnaie">Gestion Monnaie</a>
       <a href="{{route('test')}}">Liste des boissons</a>
-      <a href="../prix">Tri par prix</a>
-      <a href="../triBoisson">Tri ordre alphabétique</a>
   </div>
 </div>
