@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 class VenteController extends Controller{
 /**Affiche toutes les ventes passées */
 
- public function listeVente() {
+ public function index() {
   
-    $venteTab = array (
+    $ventesTab = array (
       array (
         "N°" => "1",
         "Boisson commandée" => "Café",  
@@ -50,7 +50,7 @@ class VenteController extends Controller{
       ),
     );
     
-    return view("ventes",["RetourTab" => $venteTab]);
+    return view("ventes",["RetourTab" => $ventesTab]);
   }
 }
 ?>

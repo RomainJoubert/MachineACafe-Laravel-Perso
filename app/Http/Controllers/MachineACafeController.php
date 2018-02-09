@@ -8,12 +8,12 @@ use App\Boisson;
 class machineACafeController extends Controller
 {
 
-function listDrink() {
+function index() {
     // $drinkChoice =['Café au lait' => 60, 'Thé' => 70, 'Expresso' => 40, 'Café long' => 50];
 
-    $drinkChoice = Boisson::select('nomBoisson', 'id')->get();
+    $drinksChoice = Boisson::select('nomBoisson', 'id')->get();
 
-     return view('machineACafe', ['drinkChoice'=>$drinkChoice]);
+     return view('machineACafe', ['drinkChoice'=>$drinksChoice]);
 
  }
  function showDrink($id){

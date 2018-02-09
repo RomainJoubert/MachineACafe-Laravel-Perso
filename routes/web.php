@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', 'IndexController@bienvenue');
+Route::get('/', 'IndexController@index');
 
-Route::get('/machineACafe','MachineACafeController@listDrink');
+Route::get('/machineACafe','MachineACafeController@index');
 
 //affiche la liste des ingrédients, ancienne version
 // Route::get('/ingredients','IngredientController@listIngredients');
 
-Route::get('/ventes','VenteController@listeVente');
+Route::get('/ventes','VenteController@index');
 
-Route::get('/recettes','RecetteController@listRecettes');
+Route::get('/recettes','RecetteController@index');
 
-Route::get('/gestionMonnaie','GestionMonnaieController@listMonnaie');
+Route::get('/gestionMonnaie','GestionMonnaieController@index');
 
 Route::get('/boisson/{id}','MachineACafeController@showDrink');
 
@@ -36,10 +36,10 @@ Route::get('prix', 'BoissonController@triPrix');
 //BOISSON
 
 //affiche le détail d'une boisson
-Route::get('boissons', 'BoissonController@detailBoisson')->name('test');
+Route::get('boissons', 'BoissonController@show')->name('test');
 
 //
-Route::get('/boissons/{id}','BoissonController@afficheBoisson');
+Route::get('/boissons/{id}','BoissonController@showDrink');
 
 //affiche la vue pour créer une boisson
 Route::get('/createBoisson', 'BoissonController@create');
@@ -48,18 +48,22 @@ Route::get('/createBoisson', 'BoissonController@create');
 Route::post('/boissons', 'BoissonController@store');
 
 //affiche la vue pour modifier une boisson
-Route::get('modifierBoisson/{id}', 'BoissonController@modifier');
+Route::get('modifierBoisson/{id}', 'BoissonController@edit');
 
-//affiche la vue quand on modifie une boisson
-Route::post('/boissons/{id}', 'BoissonController@update')->name('modifBoisson');
+
+//affiche le formulaire pour modifier une boisson
+Route::put('/boissons/{id}', 'BoissonController@update')->name('modifBoisson');
+
+//affiche le formulaire pour supprimer une boisson
+Route::get('/formulaireSuppBoisson/{id}', 'BoissonController@delete')->name('formulaireSupp');
 
 //pour supprimer une boisson
-Route::get('/boissons/{id}', 'BoissonController@destroy')->name('supprimerBoisson');
+Route::delete('/boissons/{id}', 'BoissonController@destroy')->name('supprimerBoisson');
 
 //INGREDIENTS
 
 //pour afficher la liste des ingrédients
-Route::get('/listeIngredients', 'IngredientController@ingredient');
+Route::get('/listeIngredients', 'IngredientController@index');
 
 //affiche la vue pour créer un ingrédient
 Route::get('/createIngredient', 'IngredientController@create');
@@ -68,12 +72,15 @@ Route::get('/createIngredient', 'IngredientController@create');
 Route::post('/listeIngredients', 'IngredientController@store');
 
 //affiche la vue pour modifier un ingrédient
-Route::get('/modifierIngredient/{id}', 'IngredientController@modifier');
+Route::get('/modifierIngredient/{id}', 'IngredientController@edit');
 
-//affiche la vue quand un ingrédient est rajouté
-Route::post('/listeIngredients/{id}', 'IngredientController@update')->name('modifIngredient');
+//affiche le formulaire pour modifier un ingrédient
+Route::put('/listeIngredients/{id}', 'IngredientController@update')->name('modifIngredient');
+
+//affiche le formulaire pour supprimer un ingrédient
+Route::get('/formulaireSuppIngredient/{id}', 'IngredientController@delete')->name('formulaireSuppIng');
 
 //pour supprimer un ingrédient
-Route::get('/listeIngredients/{id}', 'IngredientController@destroy')->name('supprimerIngredient');
+Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('supprimerIngredient');
 
 ?>

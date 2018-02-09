@@ -10,11 +10,12 @@ Boissons
 				<tr class="active">
 					@foreach($detailBoissons as $nomBoisson)
 					<tr>
+
 						<td>{{$nomBoisson->nomBoisson}}</td>
 						
 						<td><a href="/modifierBoisson/{{$nomBoisson->id}}"><button type='button' class='btn btn-success'>Modifier</button></a></td>
 
-						<td><a href="{{route('supprimerBoisson', [$nomBoisson->id])}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
+						<td><a href="{{route('formulaireSupp', [$nomBoisson->id])}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
 						</tr>
 					@endforeach
 				</tr>

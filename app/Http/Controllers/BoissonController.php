@@ -25,13 +25,13 @@ class BoissonController extends Controller
 		return view('prix', ['prixBoissons'=>$prix]);
 	}
 
-	public function detailBoisson()
+	public function show()
 	{
 		$detail = Boisson::select('id', 'nomBoisson', 'prix')->get();
 		return view('boissons', ['detailBoissons'=>$detail]);
 	}
 
-	 public function afficheBoisson($id){
+	 public function showDrink($id){
  		$boisson = Boisson::where('id',$id)->get();
  		return view('/detail', ['detail'=>$boisson]);
  	}
@@ -53,7 +53,7 @@ class BoissonController extends Controller
  		 return redirect('/boissons');
  	}
 
- 	public function modifier($id)
+ 	public function edit($id)
  	{
  		$boisson =  Boisson::find($id);
  		return view('/modifierBoisson',  ['boisson'=>$boisson]);
@@ -68,6 +68,12 @@ class BoissonController extends Controller
  		$boisson->save();
  		// dump($boisson);
  		return redirect('/boissons');
+ 	}
+
+ 	public function delete($id)
+ 	{
+ 		$boisson =  Boisson::find($id);
+ 		return view('/formulaireSuppBoisson',  ['boisson'=>$boisson]);
  	}
 
  	public function destroy($id)

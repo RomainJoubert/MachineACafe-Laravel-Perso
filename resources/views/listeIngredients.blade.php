@@ -16,7 +16,7 @@ La liste des ingredients
                     <td> {{$detailIngredient->nom}} </td>
                     <td> {{$detailIngredient->stock}} </td>
                     <td><a href="/modifierIngredient/{{$detailIngredient->id}}"><button type='button' class='btn btn-success'>Modifier</button></a></td>
-                    <td><a href="{{route('supprimerIngredient', [$detailIngredient->id])}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
+                    <td><a href="{{route('formulaireSuppIng', [$detailIngredient->id])}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
                         </tr>
                 </tr>
                 @endforeach

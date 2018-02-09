@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 class RecetteController extends Controller
 {
-	function listRecettes() {
+	function index() {
 		$recette = array
 		(
 			'Expresso'	=> array(

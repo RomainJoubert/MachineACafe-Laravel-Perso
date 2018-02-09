@@ -20,10 +20,10 @@ class IngredientController extends Controller
  // }
 
 // récupérer l'id, le nom et le stock de l'ingrédient pour afficher
-  public function ingredient()
+  public function index()
   {
-    $detail = Ingredient::all();
-    return view('listeIngredients', ['detailIngredients'=>$detail]);
+    $details = Ingredient::all();
+    return view('listeIngredients', ['detailIngredients'=>$details]);
   }
 
   //créer la vue pour rajouter un ingrédient
@@ -45,13 +45,13 @@ class IngredientController extends Controller
      return redirect('/listeIngredients');
   }
 
-  public function modifier($id)
+  public function edit($id)
   {
     $ingredient =  Ingredient::find($id);
     return view('/modifierIngredient', ['ingredient'=>$ingredient]);
   }
 
-  public function update(Request $request, $id)
+  public function update(Request $request,$id)
   {
     $ingredient= Ingredient::find($id);
     $ingredient->nom = $request->input('nomIngredient');
@@ -59,6 +59,12 @@ class IngredientController extends Controller
     $ingredient->save();
     // dump($boisson);
     return redirect('/listeIngredients');
+  }
+
+  public function delete($id)
+  {
+    $ingredient =  Ingredient::find($id);
+    return view('/formulaireSuppIngredient',  ['ingredient'=>$ingredient]);
   }
 
   public function destroy($id)

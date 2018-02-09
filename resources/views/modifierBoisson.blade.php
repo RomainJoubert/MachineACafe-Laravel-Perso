@@ -8,6 +8,7 @@ Boisson à modifier
 		<form method="post" action="{{route('modifBoisson',['id'=>$boisson->id])}}">
 
 			{{csrf_field()}}
+			{{method_field('PUT')}}
 
 			<b>Nom Boisson</b>
 			<input name='nomBoisson' type='text' class='form-control'>
