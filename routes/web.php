@@ -84,5 +84,12 @@ Route::get('/formulaireSuppIngredient/{id}', 'IngredientController@delete')->nam
 Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('supprimerIngredient');
 
 
+//RECETTES
+
+//pour afficher la liste des ventes
+Route::get('/ventes', 'VenteController@index');
+
+//
+Route::post('/ventes', 'VenteController@store')->name('ajoutVente');
 
 ?>

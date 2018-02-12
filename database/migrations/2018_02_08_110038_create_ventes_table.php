@@ -18,6 +18,8 @@ class CreateVentesTable extends Migration
             $table->string('nom');
             $table->integer('nbSucres');
             $table->integer('prix');
+            $table->integer('boisson_id')->unsigned();
+            $table->foreign('boisson_id')->references('id')->on('boissons');
             $table->timestamps();
         });
     }

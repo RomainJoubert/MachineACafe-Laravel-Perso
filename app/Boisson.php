@@ -9,4 +9,9 @@ class Boisson extends Model
 	
   protected $fillable=['nomBoisson', 'prix'];
   public $timestamps=false;
+
+  public function ventes()
+  {
+  	return $this->hasMany('App\Boisson');
+  }
 }

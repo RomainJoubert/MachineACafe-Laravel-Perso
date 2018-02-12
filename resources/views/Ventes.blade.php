@@ -8,8 +8,6 @@
     Liste des Ventes
 @endsection
 
-
-
 @section('content')
     <div class="container">
 
@@ -33,8 +31,32 @@
                 @endforeach
             </tbody>
         </table> --}}
+        <table class="table-hover table-bordered">
+            <tr class="active">
+                <td>N° vente</td>
+                <td>Nom boisson</td>
+                <td>Code boisson</td>
+                <td>Nb sucre(s)</td>
+                <td>Prix</td>
+                <td>Date et heure</td>
+
+            </tr>
+
+            @foreach($ventes as $vente)
+                <tr class="active">
+                    <td>{{$vente->id}} </td>
+                    <td>{{$vente->nom}} </td>
+                    <td>{{$vente->boisson_id}}</td>
+                    <td>{{$vente->nbSucres}} </td>
+                    <td>{{$vente->prix}} cts</td>
+                    <td>{{$vente->created_at}} </td>
+                </tr>
+            @endforeach
+        </table>
+        
         <div class="boutons">
-            <button type="button" class="btn btn-default">Gérer les ventes</button>
+            <br>
+            <a href="/machineACafe"><button type="button" class="btn btn-default">Gérer les ventes</button></a>
         </div>
     </div>
 @endsection

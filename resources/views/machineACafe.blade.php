@@ -14,7 +14,7 @@ Séléction des boissons
           @foreach ($drinkChoice as $drinkName)
           <tr>
             <td><a href="/boisson/{{$drinkName->id}}">{{ $drinkName->nomBoisson}} </a></td>
-        </tr>
+          </tr>
           @endforeach
         </tr>
       </thead>
@@ -22,28 +22,32 @@ Séléction des boissons
   </div>
   <div class="choixBoisson">
     <h1>Faites votre choix !</h1>
-     <select name="choixBoisson">
-    @foreach ($drinkChoice as $drinkName)
-    <form method="post" action="/boisson/{{$drinkName->id}}">
-     
+      <form method="post" action="{{route('ajoutVente')}}">
+        {{csrf_field()}}
+    <select name="choixBoisson" class="input-lg">
+      @foreach ($drinkChoice as $drinkName)
+
         <option>{{ $drinkName->nomBoisson}}</option>
-    
-      @endforeach
-        </select>
+
+        @endforeach
+      </select>
             {{--  <option>Choissisez votre boisson</option>
           <option>Café au lait</option>
           <option>Thé</option>
           <option>Expresso</option>
           <option>Café long</option>  --}}
 
-          <select name="choixSucre" placeholder="Combien de sucres ?"/>
-          <option>Combien de sucres?</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <input type="submit" value="Valider"/>
+          <select name="choixSucre" class="input-lg" placeholder="Combien de sucres ?">
+            <option>Combien de sucres?</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+
+
+          <button type="submit" value="Valider">Valider</button>
         </form>
       </div>
     </div>
