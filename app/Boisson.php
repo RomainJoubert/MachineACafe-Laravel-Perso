@@ -8,10 +8,15 @@ class Boisson extends Model
 {
 	
   protected $fillable=['nomBoisson', 'prix'];
-  public $timestamps=false;
+  public $timestamps=true;
 
   public function ventes()
   {
-  	return $this->hasMany('App\Boisson');
+  	return $this->hasMany('App\Vente');
+  }
+
+  public function ingredients()
+  {
+  	return $this->belongsToMany('App\ingredient')->withPivot('nbDose');
   }
 }

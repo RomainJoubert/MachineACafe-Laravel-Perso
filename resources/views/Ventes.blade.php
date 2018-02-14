@@ -56,7 +56,7 @@
         
         <div class="boutons">
             <br>
-            <a href="/machineACafe"><button type="button" class="btn btn-default">Gérer les ventes</button></a>
+            <a href="/machineACafe"><button type="button" class="btn btn-default">Passer une commande</button></a>
         </div>
     </div>
 @endsection

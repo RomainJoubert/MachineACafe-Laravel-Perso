@@ -7,25 +7,25 @@
 	<div class="tableauRecette ">
 		<table class = "table table-hover table-bordered">	
 			<tr class="active">
-				<th><b>NomBoisson</b></th> 
-				<th><b>Ingrédients</b></th>
-				<th><b>Quantité</b></th>
-				<th><b>Ingrédients</b></th>
-				<th><b>Quantité</b></th>
-				<th><b>Ingrédients</b></th>
-				<th><b>Quantité</b></th>
+				<th><b>Nom Boisson</b></th> 
+				<th><b>Ingrédient</b></th>
+				<th><b>Dose</b></th>	
 			</tr>
-		</tr>
-			@foreach($recette as $nomboisson=>$rec)
-			<td>{{ $nomboisson }}</td>
-			@foreach($rec as $ingredient=>$quantite)
-
-			<td>{{$ingredient}}</td>
-			<td>  {{$quantite}}</td>
-			@endforeach
+			
+			<tr>
+				@foreach($boissons as $boisson)
+					@foreach($boisson->ingredients as $ingredient)
+					<tr>
+						<td>{{$boisson->nomBoisson}}</td>
+						<td>{{$ingredient->nom}}</td>
+						<td>{{$ingredient->pivot->nbDose}}</td>
+					</tr>
+					@endforeach
 			</tr>
-			@endforeach
+				@endforeach
+			
 		</table>
+			
 	</div> 
 	@include("template.boutonAddRemoveModif");
 @endsection
