@@ -1,7 +1,7 @@
 <nav class="menuTemplate">
 	<div class="links">
 		<a href="../">Home</a>
-		<a href="../machineACafe">Machine a café</a>
+		<a href="../machineACafe">Machine à café</a>
 		@if (Route::has('login'))
 		@auth
 		

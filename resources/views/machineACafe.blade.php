@@ -22,7 +22,9 @@ Séléction des boissons
   </div>
   <div class="choixBoisson">
     <h1>Faites votre choix !</h1>
-    <form method="post" action="{{route('ajoutVente')}}">
+      @if (Route::has('login'))
+        @auth
+    <form method="post" action="/machineACafe">
       {{csrf_field()}}
       <th><b>Boisson : </b></th>
       <select name="choixBoisson" class="input-lg">
@@ -49,6 +51,32 @@ Séléction des boissons
 
           <button type="submit" value="Valider">Valider</button>
         </form>
+        @else
+           <form method="post" action="/machineACafe">
+      {{csrf_field()}}
+      <th><b>Boisson : </b></th>
+      <select name="choixBoisson" class="input-lg">
+        @foreach ($drinkChoice as $drinkName)
+        <option>{{ $drinkName->nomBoisson}}</option>
+
+        @endforeach
+        </select>
+
+        <th><b>Nombre de sucre : </b></th>
+          <select name="choixSucre" class="input-lg" placeholder="Combien de sucres ?">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+
+
+          <button type="submit" value="Valider">Valider</button>
+        </form>
+           @endauth
+        @endif
       </div>
     </div>
     @endsection

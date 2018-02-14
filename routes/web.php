@@ -106,7 +106,7 @@ Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('s
 Route::get('/ventes', 'VenteController@index')->middleware('auth');
 
 //
-Route::post('/ventes', 'VenteController@store')->name('ajoutVente');
+Route::post('/machineACafe', 'VenteController@store')->name('ajoutVente');
 
 
 

@@ -91,7 +91,7 @@ class VenteController extends Controller{
    //$boisson = Boisson::select('prix')->where('nomBoisson',$data['nom'])->get();
     
     $ventes = Vente::create($data);
-    return redirect('/ventes') ;
+    return redirect('/machineACafe') ;
   }
 
 }
