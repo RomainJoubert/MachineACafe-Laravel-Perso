@@ -10,6 +10,8 @@ La liste des ingredients
                     {{-- ancienne version  --}}
                     <td><b>Nom Ingrédient</b></td>
                     <td><b>Quantité</b></td>
+                    <td><b>Ajouter ingrédient</b></td>
+                    <td><b>Supprimer ingrédient</b></td>
                 </tr>
                 <tr>  
                     @foreach ($detailIngredients as $detailIngredient)

@@ -11,9 +11,12 @@ Séléction des boissons
     <table class = "table table-hover table-bordered">
       <thead>
         <tr class="active">
+          <td><b>Boisson</b></td>
+          <td><b>Prix</b></td>
           @foreach ($drinkChoice as $drinkName)
           <tr>
-            <td><a href="/boisson/{{$drinkName->id}}">{{ $drinkName->nomBoisson}} </a></td>
+            <td><a href="/boisson/{{$drinkName->id}}">{{ $drinkName->nomBoisson}}</a></td>
+            <td>{{$drinkName->prix}} centimes</td>
           </tr>
           @endforeach
         </tr>

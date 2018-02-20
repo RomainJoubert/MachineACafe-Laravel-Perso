@@ -26,7 +26,8 @@ Ajouter recette
 			<b>Nombre de dose(s)</b>
 			<b><input type="text" name="nbDose" class='input-sm' placeholder="Nombre de dose(s)"></input></b>
 			<br>
-			<button type="submit" class='btn btn-default'>Valider</button>
+			<button type="submit" class='btn btn-primary'>Valider</button>
+			<a href="/recettes/"><button type="button" class='btn btn-success'>Annuler</button></a>
 		</form>
 	</div>
 </div>

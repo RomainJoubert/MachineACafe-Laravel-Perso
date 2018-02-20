@@ -42,16 +42,16 @@ Route::get('/createRecette', 'RecetteController@create')->middleware('auth');
 Route::post('/recettes', 'RecetteController@store')->middleware('auth');
 
 //affiche la vue pour modifier une recette
-Route::get('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@edit');
+Route::get('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@edit')->middleware('auth');
 
 //affiche le formulaire de modification d'une recette
-Route::put('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@update');
+Route::put('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@update')->middleware('auth');
 
 //affiche le formulaire pour supprimer une recette
-Route::get('/supprimerRecette/{boisson_id}/{ingredient_id}', 'RecetteController@delete');
+Route::get('/supprimerRecette/{boisson_id}/{ingredient_id}', 'RecetteController@delete')->middleware('auth');
 
 //supprimer une recette
-Route::delete('/recettes/{boisson_id}/{ingredient_id}', 'RecetteController@destroy')->name('supprimerRecette');
+Route::delete('/recettes/{boisson_id}/{ingredient_id}', 'RecetteController@destroy')->name('supprimerRecette')->middleware('auth');
 
 
 

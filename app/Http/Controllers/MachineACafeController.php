@@ -11,14 +11,16 @@ class machineACafeController extends Controller
 function index() {
     // $drinkChoice =['Café au lait' => 60, 'Thé' => 70, 'Expresso' => 40, 'Café long' => 50];
 
-    $drinksChoice = Boisson::select('nomBoisson', 'id')->get();
+    $drinksChoice = Boisson::select('nomBoisson', 'id', 'prix')->get();
 
      return view('machineACafe', ['drinkChoice'=>$drinksChoice]);
 
  }
  function showDrink($id){
  	$boisson = Boisson::find($id);
- 		return view('/boisson.drinkDetails', ['details'=>$boisson]);
+    $recette= $boisson->ingredients;
+        return view('/boisson.drinkDetails', ['details'=>$boisson], ['recette'=>$recette]);
+ 		
  }
 //Fonction de Véro
     // function listDrink() {
