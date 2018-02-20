@@ -19,6 +19,7 @@
 						<td>{{$boisson->nomBoisson}}</td>
 						<td>{{$ingredient->nom}}</td>
 						<td>{{$ingredient->pivot->nbDose}}</td>
+						<td><a href="/modifierRecette/{{$boisson->id}}/{{$ingredient->id}}"><button type='button' class='btn btn-success'>Modifier</button></a></td>
 					</tr>
 					@endforeach
 			</tr>
@@ -27,7 +28,7 @@
 		</table>
 			
 	</div> 
-	@include("template.boutonAddRemoveModif");
+	<a href="/createRecette" class="btn btn-primary">Ajouter</a>
 @endsection
 
 

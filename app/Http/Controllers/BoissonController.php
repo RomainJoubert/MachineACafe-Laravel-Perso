@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Boisson;//lien vers la classe boisson
+use App\Ingredient;
+use App\Boisson_ingredient;
 
 class BoissonController extends Controller
 {
@@ -73,7 +75,6 @@ class BoissonController extends Controller
  		$boisson->nomBoisson = request('nomBoisson');
  		$boisson->prix = request('prix');
  		$boisson->save();
- 		// dump($boisson);
  		return redirect('/boissons');
  	}
 
@@ -92,6 +93,7 @@ class BoissonController extends Controller
 
  		return redirect('/boissons');
  	}
+ 	
  }
 
 ?>

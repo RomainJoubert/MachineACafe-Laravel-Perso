@@ -35,6 +35,17 @@ Route::get('/ventes','VenteController@index')->middleware('auth');
 //affiche les recettes des boissons
 Route::get('/recettes','RecetteController@index')->middleware('auth');
 
+//affiche le formulaire pour ajouter une recette
+Route::get('/createRecette', 'RecetteController@create')->middleware('auth');
+
+//affiche la vue après avoir créée une recette
+Route::post('/recettes', 'RecetteController@store')->middleware('auth');
+
+//affiche le formulaire pour modifier une recette
+Route::get('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@edit');
+
+Route::put('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@update');
+
 
 
 
@@ -100,12 +111,12 @@ Route::get('/formulaireSuppIngredient/{id}', 'IngredientController@delete')->nam
 Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('supprimerIngredient')->middleware('auth');
 
 
-//RECETTES
+//VENTES
 
 //pour afficher la liste des ventes
 Route::get('/ventes', 'VenteController@index')->middleware('auth');
 
-//
+//pour ajouter une commande
 Route::post('/machineACafe', 'VenteController@store')->name('ajoutVente');
 
 
