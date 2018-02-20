@@ -16,7 +16,7 @@ class RecetteController extends Controller
 	{
 		//récupère les ingrédients d'une boisson
 		$boissons = Boisson::all();
-		return view('recettes', ['boissons'=>$boissons]);
+		return view('/recettes', ['boissons'=>$boissons]);
 	}
 
 	public function create()
@@ -55,9 +55,24 @@ class RecetteController extends Controller
 		$boisson=Boisson::find($boisson_id);
 		$recette=$boisson->ingredients->find($ingredient_id);
 		$recette->pivot->update(['nbDose'=>$request->input('quantite')]);
-		// $recette->save();
-		// dd($recette);
-		
+		return redirect('/recettes');
+	}
+
+	//pour afficher la vue du formulaire de suppression
+	public function delete($boisson_id, $ingredient_id)
+	{
+		$boisson=Boisson::find($boisson_id);
+		$recette=$boisson->ingredients->find($ingredient_id);
+		return view('/formulaireSuppRecette',['boisson'=>$boisson], ['recette'=>$recette]);
+	}
+
+	//pour supprimer une recette
+	public function destroy($boisson_id, $ingredient_id)
+	{
+		$boisson=Boisson::find($boisson_id);
+		$recette=$boisson->ingredients->find($ingredient_id);
+		$boisson->ingredients()->detach($recette);
+		// dump($boisson);
 		return redirect('/recettes');
 	}
 }

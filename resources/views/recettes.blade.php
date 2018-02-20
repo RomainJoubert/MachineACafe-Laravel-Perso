@@ -9,7 +9,9 @@
 			<tr class="active">
 				<th><b>Nom Boisson</b></th> 
 				<th><b>Ingrédient</b></th>
-				<th><b>Dose</b></th>	
+				<th><b>Dose</b></th>
+				<th><b>Modifier recette</b></th>
+				<th><b>Supprimer recette</b></th>	
 			</tr>
 			
 			<tr>
@@ -20,6 +22,7 @@
 						<td>{{$ingredient->nom}}</td>
 						<td>{{$ingredient->pivot->nbDose}}</td>
 						<td><a href="/modifierRecette/{{$boisson->id}}/{{$ingredient->id}}"><button type='button' class='btn btn-success'>Modifier</button></a></td>
+						<td><a href="/supprimerRecette/{{$boisson->id}}/{{$ingredient->id}}"><button type='button' class='btn btn-danger'>Supprimer</button></a></td>
 					</tr>
 					@endforeach
 			</tr>

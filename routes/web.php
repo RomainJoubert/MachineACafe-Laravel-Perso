@@ -41,10 +41,17 @@ Route::get('/createRecette', 'RecetteController@create')->middleware('auth');
 //affiche la vue après avoir créée une recette
 Route::post('/recettes', 'RecetteController@store')->middleware('auth');
 
-//affiche le formulaire pour modifier une recette
+//affiche la vue pour modifier une recette
 Route::get('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@edit');
 
+//affiche le formulaire de modification d'une recette
 Route::put('/modifierRecette/{boisson_id}/{ingredient_id}', 'RecetteController@update');
+
+//affiche le formulaire pour supprimer une recette
+Route::get('/supprimerRecette/{boisson_id}/{ingredient_id}', 'RecetteController@delete');
+
+//supprimer une recette
+Route::delete('/recettes/{boisson_id}/{ingredient_id}', 'RecetteController@destroy')->name('supprimerRecette');
 
 
 
