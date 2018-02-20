@@ -17,13 +17,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('index');
 
 
 
 
 
-Route::get('/machineACafe','MachineACafeController@index');
+Route::get('/machineACafe','MachineACafeController@index')->name('machine');
 
 //affiche la liste des ingrédients, ancienne version
 // Route::get('/ingredients','IngredientController@listIngredients');
@@ -33,7 +33,7 @@ Route::get('/ventes','VenteController@index')->middleware('auth');
 //RECETTES
 
 //affiche les recettes des boissons
-Route::get('/recettes','RecetteController@index')->middleware('auth');
+Route::get('/recettes','RecetteController@index')->middleware('auth')->name('recettes');
 
 //affiche le formulaire pour ajouter une recette
 Route::get('/createRecette', 'RecetteController@create')->middleware('auth');
@@ -56,7 +56,7 @@ Route::delete('/recettes/{boisson_id}/{ingredient_id}', 'RecetteController@destr
 
 
 
-Route::get('/gestionMonnaie','GestionMonnaieController@index')->middleware('auth');
+Route::get('/gestionMonnaie','GestionMonnaieController@index')->middleware('auth')->name('monnaie');
 
 Route::get('/boisson/{id}','MachineACafeController@showDrink');
 
@@ -70,7 +70,7 @@ Route::get('prix', 'BoissonController@triPrix')->middleware('auth');
 //BOISSON
 
 //affiche le détail d'une boisson
-Route::get('boissons', 'BoissonController@show')->name('test')->middleware('auth');
+Route::get('boissons', 'BoissonController@show')->name('boissons')->middleware('auth');
 
 //
 Route::get('/boissons/{id}','BoissonController@showDrink')->middleware('auth');
@@ -97,7 +97,7 @@ Route::delete('/boissons/{id}', 'BoissonController@destroy')->name('supprimerBoi
 //INGREDIENTS
 
 //pour afficher la liste des ingrédients
-Route::get('/listeIngredients', 'IngredientController@index')->middleware('auth');
+Route::get('/listeIngredients', 'IngredientController@index')->middleware('auth')->name('ingredients');
 
 //affiche la vue pour créer un ingrédient
 Route::get('/createIngredient', 'IngredientController@create')->middleware('auth');
@@ -121,7 +121,7 @@ Route::delete('/listeIngredients/{id}', 'IngredientController@destroy')->name('s
 //VENTES
 
 //pour afficher la liste des ventes
-Route::get('/ventes', 'VenteController@index')->middleware('auth');
+Route::get('/ventes', 'VenteController@index')->middleware('auth')->name('ventes');
 
 //pour ajouter une commande
 Route::post('/machineACafe', 'VenteController@store')->name('ajoutVente');
